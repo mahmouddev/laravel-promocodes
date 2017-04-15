@@ -7,25 +7,27 @@ use Gabievi\Promocodes\Model\Promocode;
 
 trait Rewardable
 {
-    /**
-     * Create promocodes for current model.
-     *
-     * @param int   $amount
-     * @param null  $reward
-     * @param array $data
-     *
-     * @return mixed
-     */
-    public function createCode($amount = 1, $reward = null, array $data = [])
+	/**
+	 * Create promocodes for current model.
+	 *
+	 * @param int    $amount
+	 * @param null   $reward
+	 * @param string $rewardType
+	 * @param array  $data
+	 *
+	 * @return mixed
+	 */
+    public function createCode($amount = 1, $reward = null, $rewardType = 'percentage', array $data = [])
     {
         $records = [];
 
         // loop though each promocodes required
         foreach (Promocodes::output($amount) as $code) {
             $records[] = new Promocode([
-                'code'   => $code,
-                'reward' => $reward,
-                'data'   => json_encode($data),
+				'code'       => $code,
+				'reward'     => $reward,
+				'rewardType' => $rewardType,
+				'data'       => json_encode($data),
             ]);
         }
 

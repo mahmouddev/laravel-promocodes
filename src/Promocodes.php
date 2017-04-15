@@ -125,28 +125,30 @@ class Promocodes
 
         return $collection;
     }
-
-    /**
-     * Save promocodes into database
-     * Successful insert returns generated promocodes
-     * Fail will return NULL.
-     *
-     * @param int   $amount
-     * @param null  $reward
-     * @param array $data
-     *
-     * @return static
-     */
-    public function create($amount = 1, $reward = null, array $data = [])
+	
+	/**
+	 * Save promocodes into database
+	 * Successful insert returns generated promocodes
+	 * Fail will return NULL.
+	 *
+	 * @param int    $amount
+	 * @param null   $reward
+	 * @param string $rewardType
+	 * @param array  $data
+	 *
+	 * @return static
+	 */
+    public function create($amount = 1, $reward = null, $rewardType = 'percentage', array $data = [])
     {
         $records = [];
 
         // loop though each promocodes required
         foreach ($this->output($amount) as $code) {
             $records[] = [
-                'code'   => $code,
-                'reward' => $reward,
-                'data'   => json_encode($data),
+				'code'       => $code,
+				'reward'     => $reward,
+				'rewardType' => $rewardType,
+				'data'       => json_encode($data),
             ];
         }
 
