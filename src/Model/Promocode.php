@@ -22,6 +22,8 @@ class Promocode extends Model
     protected $fillable = [
         'code',
         'reward',
+		'reward_type',
+		'residue',
         'is_used',
     ];
 
