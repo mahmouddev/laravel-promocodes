@@ -19,7 +19,8 @@ class CreatePromocodesTable extends Migration
 
             $table->string('code', 32)->unique();
             $table->double('reward', 10, 2)->nullable();
-
+			$table->enum('reward_type', ['percentage', 'value']);
+			$table->double('residue', 10, 2)->nullable();
             $table->json('data')->nullable();
 
             $table->boolean('is_used')->default(false);
