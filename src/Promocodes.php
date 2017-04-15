@@ -147,7 +147,7 @@ class Promocodes
             $records[] = [
 				'code'       => $code,
 				'reward'     => $reward,
-				'rewardType' => $rewardType,
+				'reward_type' => $rewardType,
 				'data'       => json_encode($data),
             ];
         }
