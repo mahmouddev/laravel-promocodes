@@ -75,7 +75,7 @@ Create as many codes as you wish, with same reward for each one.
 They will be saved in database and you will get collection of them in return:
 
 ```php
-Promocodes::create($amount = 1, $reward = null, array $data = [])
+Promocodes::create($amount = 1, $reward = null, $rewardType = 'percentage', array $data = [])
 ```
 
 Check if given code exists and isn't used at all:
@@ -122,7 +122,7 @@ User::promocodes()
 Create promocode(s) for current user. Works exactly same like `create` method of `Promocodes`:
 
 ```php
-User::createCode($amount = 1, $reward = null, array $data = [])
+User::createCode($amount = 1, $reward = null, $rewardType = 'percentage', array $data = [])
 ```
 
 Apply, that given code is used by current user. 
@@ -147,13 +147,13 @@ $user->applyCode('ABCD-DCBA', function ($promocode) use ($user) {
 1. Process of creation:
 
 ```php
-Promocodes::create(1, 25, ['foo' => 'bar', 'baz' => 'qux']);
+Promocodes::create(1, 25, 'percentage', ['foo' => 'bar', 'baz' => 'qux']);
 ```
 
 or
 
 ```php
-User::createCode(1, 25, ['foo' => 'bar', 'baz' => 'qux']);
+User::createCode(1, 25, 'percentage', ['foo' => 'bar', 'baz' => 'qux']);
 ```
 
 2. Getting data back:
