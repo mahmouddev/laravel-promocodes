@@ -2,7 +2,6 @@
 
 namespace Gabievi\Promocodes\Model;
 
-use App\User;
 use Illuminate\Database\Eloquent\Model;
 
 class Promocode extends Model
@@ -56,7 +55,7 @@ class Promocode extends Model
      */
     public function user()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(config('promocodes.user_model'));
     }
 
     /**

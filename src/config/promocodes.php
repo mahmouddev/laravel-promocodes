@@ -50,4 +50,6 @@ return [
      * Can be set any thing you wish
      */
     'separator' => '-',
+
+    'user_model' => \App\User::class
 ];
